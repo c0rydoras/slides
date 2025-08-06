@@ -1,4 +1,4 @@
-module github.com/maaslalani/slides
+module github.com/c0rydoras/slides
 
 go 1.22
 

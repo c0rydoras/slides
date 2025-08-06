@@ -9,9 +9,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/maaslalani/slides/internal/model"
-	"github.com/maaslalani/slides/internal/navigation"
-	"github.com/maaslalani/slides/internal/server"
+	"github.com/c0rydoras/slides/internal/model"
+	"github.com/c0rydoras/slides/internal/navigation"
+	"github.com/c0rydoras/slides/internal/server"
 	"github.com/muesli/coral"
 )
 

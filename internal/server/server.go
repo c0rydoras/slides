@@ -6,7 +6,7 @@ import (
 
 	"github.com/charmbracelet/ssh"
 	"github.com/charmbracelet/wish"
-	"github.com/maaslalani/slides/internal/model"
+	"github.com/c0rydoras/slides/internal/model"
 )
 
 // Server is the server for hosting this presentation.

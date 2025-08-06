@@ -3,7 +3,7 @@ package code_test
 import (
 	"testing"
 
-	"github.com/maaslalani/slides/internal/code"
+	"github.com/c0rydoras/slides/internal/code"
 )
 
 func TestExecute(t *testing.T) {

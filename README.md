@@ -7,65 +7,50 @@ Slides in your terminal.
 </p>
 
 ### Installation
-[![Homebrew](https://img.shields.io/badge/dynamic/json.svg?url=https://formulae.brew.sh/api/formula/slides.json&query=$.versions.stable&label=homebrew)](https://formulae.brew.sh/formula/slides)
-[![Snapcraft](https://snapcraft.io/slides/badge.svg)](https://snapcraft.io/slides)
-[![AUR](https://img.shields.io/aur/version/slides?label=AUR)](https://aur.archlinux.org/packages/slides)
 
-<details markdown="block">
-<summary>Instructions</summary>
-
-#### MacOS
-```
-brew install slides
-```
-#### Arch
-```
-yay -S slides
-```
-#### Nixpkgs (unstable)
-```
-nix-env -iA nixpkgs.slides
-```
-#### Any Linux Distro running `snapd`
-```
-sudo snap install slides
-```
 #### Go
+
 ```
-go install github.com/maaslalani/slides@latest
+go install github.com/c0rydoras/slides@latest
 ```
+
 From source:
+
 ```
-git clone https://github.com/maaslalani/slides.git
+git clone https://github.com/c0rydoras/slides.git
 cd slides
 go install
 ```
 
-You can also download a binary from the [releases](https://github.com/maaslalani/slides/releases) page.
+You can also download a binary from the [releases](https://github.com/c0rydoras/slides/releases) page.
 
 </details>
 
-
 ### Usage
+
 Create a simple markdown file that contains your slides:
 
 ````markdown
 # Welcome to Slides
+
 A terminal based presentation tool
 
 ---
 
 ## Everything is markdown
+
 In fact, this entire presentation is a markdown file.
 
 ---
 
 ## Everything happens in your terminal
+
 Create slides and present them without ever leaving your terminal.
 
 ---
 
 ## Code execution
+
 ```go
 package main
 
@@ -83,7 +68,7 @@ the output of your command will be displayed at the end of the current slide.
 
 ## Pre-process slides
 
-You can add a code block with three tildes (`~`) and write a command to run *before* displaying
+You can add a code block with three tildes (`~`) and write a command to run _before_ displaying
 the slides, the text inside the code block will be passed as `stdin` to the command
 and the code block will be replaced with the `stdout` of the command.
 
@@ -95,9 +80,9 @@ and the code block will be replaced with the `stdout` of the command.
 
 The above will be pre-processed to look like:
 
-┌───┐  to   ┌───┐
+┌───┐ to ┌───┐
 │ A │ ────> │ B │
-└───┘       └───┘
+└───┘ └───┘
 
 For security reasons, you must pass a file that has execution permissions
 for the slides to be pre-processed. You can use `chmod` to add these permissions.
@@ -105,12 +90,12 @@ for the slides to be pre-processed. You can use `chmod` to add these permissions
 ```bash
 chmod +x file.md
 ```
-
 ````
 
-Checkout the [example slides](https://github.com/maaslalani/slides/tree/main/examples).
+Checkout the [example slides](https://github.com/c0rydoras/slides/tree/main/examples).
 
 Then, to present, run:
+
 ```
 slides presentation.md
 ```
@@ -118,48 +103,52 @@ slides presentation.md
 If given a file name, `slides` will automatically look for changes in the file and update the presentation live.
 
 `slides` also accepts input through `stdin`:
+
 ```
 curl http://example.com/slides.md | slides
 ```
 
 Go to the first slide with the following key sequence:
-* <kbd>g</kbd> <kbd>g</kbd>
+
+- <kbd>g</kbd> <kbd>g</kbd>
 
 Go to the next slide with any of the following key sequences:
-* <kbd>space</kbd>
-* <kbd>right</kbd>
-* <kbd>down</kbd>
-* <kbd>enter</kbd>
-* <kbd>n</kbd>
-* <kbd>j</kbd>
-* <kbd>l</kbd>
-* <kbd>Page Down</kbd>
-* number + any of the above (go forward n slides)
+
+- <kbd>space</kbd>
+- <kbd>right</kbd>
+- <kbd>down</kbd>
+- <kbd>enter</kbd>
+- <kbd>n</kbd>
+- <kbd>j</kbd>
+- <kbd>l</kbd>
+- <kbd>Page Down</kbd>
+- number + any of the above (go forward n slides)
 
 Go to the previous slide with any of the following key sequences:
-* <kbd>left</kbd>
-* <kbd>up</kbd>
-* <kbd>p</kbd>
-* <kbd>h</kbd>
-* <kbd>k</kbd>
-* <kbd>N</kbd>
-* <kbd>Page Up</kbd>
-* number + any of the above (go back n slides)
+
+- <kbd>left</kbd>
+- <kbd>up</kbd>
+- <kbd>p</kbd>
+- <kbd>h</kbd>
+- <kbd>k</kbd>
+- <kbd>N</kbd>
+- <kbd>Page Up</kbd>
+- number + any of the above (go back n slides)
 
 Go to a specific slide with the following key sequence:
 
-* number + <kbd>G</kbd>
+- number + <kbd>G</kbd>
 
 Go to the last slide with the following key:
 
-* <kbd>G</kbd>
+- <kbd>G</kbd>
 
 ### Search
 
 To quickly jump to the right slide, you can use the search function.
 
 Press <kbd>/</kbd>, enter your search term and press <kbd>Enter</kbd>  
-(*The search term is interpreted as a regular expression. The `/i` flag causes case-insensitivity.*).
+(_The search term is interpreted as a regular expression. The `/i` flag causes case-insensitivity._).
 
 Press <kbd>ctrl+n</kbd> after a search to go to the next search result.
 
@@ -173,7 +162,7 @@ Press <kbd>ctrl+e</kbd> on a slide with a code block to execute it and display t
 ### Pre-processing
 
 You can add a code block with three tildes (`~`) and write a command to run
-*before* displaying the slides, the text inside the code block will be passed
+_before_ displaying the slides, the text inside the code block will be passed
 as `stdin` to the command and the code block will be replaced with the `stdout`
 of the command. Wrap the pre-processed block in three backticks to keep
 proper formatting and new lines.
@@ -216,14 +205,14 @@ paging: Slide %d / %d
 ---
 ```
 
-* `theme`: Path to `json` file containing a [glamour
+- `theme`: Path to `json` file containing a [glamour
   theme](https://github.com/charmbracelet/glamour/tree/master/styles), can also
   be a link to a remote `json` file which slides will fetch before presenting.
-* `author`: A `string` to display on the bottom-left corner of the presentation
+- `author`: A `string` to display on the bottom-left corner of the presentation
   view. Defaults to the OS current user's full name. Can be empty to hide the author.
-* `date`: A `string` that is used to format today's date in the `YYYY-MM-DD` format. If the date is not a valid
+- `date`: A `string` that is used to format today's date in the `YYYY-MM-DD` format. If the date is not a valid
   format, the string will be displayed. Defaults to `YYYY-MM-DD`.
-* `paging`: A `string` that contains 0 or more `%d` directives. The first `%d`
+- `paging`: A `string` that contains 0 or more `%d` directives. The first `%d`
   will be replaced with the current slide number and the second `%d` will be
   replaced with the total slides count. Defaults to `Slide %d / %d`.
   You will need to surround the paging value with quotes if it starts with `%`.
@@ -233,7 +222,7 @@ paging: Slide %d / %d
 Given the date _January 02, 2006_:
 
 | Value  | Translates to |
-|--------|---------------|
+| ------ | ------------- |
 | `YYYY` | 2006          |
 | `YY`   | 06            |
 | `MMMM` | January       |
@@ -256,6 +245,7 @@ slides serve [file]
 
 Then, on another machine (or same machine), `ssh` into the port specified by
 the `slides serve [file]` command:
+
 ```
 ssh 127.0.0.1 -p 53531
 ```
@@ -269,10 +259,12 @@ own computer without needing to download `slides` and the presentation file.
 
 **Credits**: This project was heavily inspired by [`lookatme`](https://github.com/d0c-s4vage/lookatme).
 
-* [`lookatme`](https://github.com/d0c-s4vage/lookatme)
-* [`sli.dev`](https://sli.dev/)
-* [`sent`](https://tools.suckless.org/sent/)
-* [`presenterm`](https://github.com/mfontanini/presenterm)
+- [`lookatme`](https://github.com/d0c-s4vage/lookatme)
+- [`sli.dev`](https://sli.dev/)
+- [`sent`](https://tools.suckless.org/sent/)
+- [`presenterm`](https://github.com/mfontanini/presenterm)
+- [`slides`](https://github.com/maaslalani/slides)
 
 ### Development
+
 See the [development documentation](./docs/development)

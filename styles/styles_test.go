@@ -5,7 +5,7 @@ import (
 
 	"github.com/charmbracelet/glamour"
 	"github.com/charmbracelet/glamour/ansi"
-	"github.com/maaslalani/slides/styles"
+	"github.com/c0rydoras/slides/styles"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -6,9 +6,9 @@ import (
 	"time"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/maaslalani/slides/internal/cmd"
-	"github.com/maaslalani/slides/internal/model"
-	"github.com/maaslalani/slides/internal/navigation"
+	"github.com/c0rydoras/slides/internal/cmd"
+	"github.com/c0rydoras/slides/internal/model"
+	"github.com/c0rydoras/slides/internal/navigation"
 	"github.com/muesli/coral"
 )
 

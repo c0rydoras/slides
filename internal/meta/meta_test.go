@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/maaslalani/slides/internal/meta"
+	"github.com/c0rydoras/slides/internal/meta"
 	"github.com/stretchr/testify/assert"
 )
 

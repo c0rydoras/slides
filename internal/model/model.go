@@ -11,17 +11,17 @@ import (
 	"time"
 
 	"github.com/atotto/clipboard"
-	"github.com/maaslalani/slides/internal/file"
-	"github.com/maaslalani/slides/internal/navigation"
-	"github.com/maaslalani/slides/internal/preprocessor"
-	"github.com/maaslalani/slides/internal/process"
+	"github.com/c0rydoras/slides/internal/file"
+	"github.com/c0rydoras/slides/internal/navigation"
+	"github.com/c0rydoras/slides/internal/preprocessor"
+	"github.com/c0rydoras/slides/internal/process"
 
 	"github.com/charmbracelet/bubbles/viewport"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/glamour"
-	"github.com/maaslalani/slides/internal/code"
-	"github.com/maaslalani/slides/internal/meta"
-	"github.com/maaslalani/slides/styles"
+	"github.com/c0rydoras/slides/internal/code"
+	"github.com/c0rydoras/slides/internal/meta"
+	"github.com/c0rydoras/slides/styles"
 )
 
 var (

@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/maaslalani/slides/internal/file"
+	"github.com/c0rydoras/slides/internal/file"
 	"github.com/stretchr/testify/assert"
 )
 
