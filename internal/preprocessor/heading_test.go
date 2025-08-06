@@ -8,32 +8,32 @@ import (
 func TestCollectHeadings(t *testing.T) {
 	tests := []struct {
 		name     string
-		slide    []byte
+		slide    string
 		expected map[int]string
 	}{
 		{
 			name:     "empty slide",
-			slide:    []byte(""),
+			slide:    "",
 			expected: map[int]string{},
 		},
 		{
 			name:     "no headings",
-			slide:    []byte("no headings"),
+			slide:    "no headings",
 			expected: map[int]string{},
 		},
 		{
 			name:  "single h1",
-			slide: []byte(`# h1`),
+			slide: `# h1`,
 			expected: map[int]string{
 				1: "h1",
 			},
 		},
 		{
 			name: "multiple heading levels",
-			slide: []byte(`# h1
+			slide: `# h1
 ## h2
 ### h3
-`),
+`,
 			expected: map[int]string{
 				1: "h1",
 				2: "h2",
@@ -42,10 +42,10 @@ func TestCollectHeadings(t *testing.T) {
 		},
 		{
 			name: "multiple headings at same level",
-			slide: []byte(`
+			slide: `
 # nono
 ## h2
-# h1`),
+# h1`,
 			expected: map[int]string{
 				1: "h1",
 				2: "h2",
@@ -55,7 +55,7 @@ func TestCollectHeadings(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := collectHeadings(tt.slide)
+			result := collectHeadings([]byte(tt.slide))
 			if !reflect.DeepEqual(result, tt.expected) {
 				t.Errorf("collectHeadings() = %v, want %v", result, tt.expected)
 			}
@@ -64,16 +64,16 @@ func TestCollectHeadings(t *testing.T) {
 }
 
 func TestAddHeadings(t *testing.T) {
-	slides := [][]byte{
-		[]byte("# Slide 1\nContent of slide 1"),
-		[]byte("## Slide 2\nContent of slide 2"),
-		[]byte("Content of slide 3"),
+	slides := []string{
+		"# Slide 1\nContent of slide 1",
+		"## Slide 2\nContent of slide 2",
+		"Content of slide 3",
 	}
 
-	expected := [][]byte{
-		[]byte("# Slide 1\nContent of slide 1"),
-		[]byte("# Slide 1\n## Slide 2\nContent of slide 2"),
-		[]byte("# Slide 1\n## Slide 2\nContent of slide 3"),
+	expected := []string{
+		"# Slide 1\nContent of slide 1",
+		"# Slide 1\n## Slide 2\nContent of slide 2",
+		"# Slide 1\n## Slide 2\nContent of slide 3",
 	}
 
 	result := AddHeadings(slides, 2)
