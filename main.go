@@ -8,15 +8,15 @@ import (
 	"github.com/c0rydoras/slides/internal/model"
 	"github.com/c0rydoras/slides/internal/navigation"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/muesli/coral"
+	"github.com/spf13/cobra"
 )
 
 var (
-	cmd = &coral.Command{
+	cmd = &cobra.Command{
 		Use:   "slides <file.md>",
 		Short: "Terminal based presentation tool",
-		Args:  coral.ArbitraryArgs,
-		RunE: func(cmd *coral.Command, args []string) error {
+		Args:  cobra.ArbitraryArgs,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var err error
 			var fileName string
 
