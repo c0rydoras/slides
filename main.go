@@ -5,10 +5,10 @@ import (
 	"os"
 	"time"
 
-	tea "github.com/charmbracelet/bubbletea"
 	"github.com/c0rydoras/slides/internal/cmd"
 	"github.com/c0rydoras/slides/internal/model"
 	"github.com/c0rydoras/slides/internal/navigation"
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/muesli/coral"
 )
 
