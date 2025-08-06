@@ -13,6 +13,7 @@ import (
 	"github.com/atotto/clipboard"
 	"github.com/maaslalani/slides/internal/file"
 	"github.com/maaslalani/slides/internal/navigation"
+	"github.com/maaslalani/slides/internal/preprocessor"
 	"github.com/maaslalani/slides/internal/process"
 
 	"github.com/charmbracelet/bubbles/viewport"
@@ -98,7 +99,7 @@ func (m *Model) Load() error {
 		slides = slides[1:]
 	}
 
-	m.Slides = slides
+	m.Slides = preprocessor.AddHeadings(slides, 2)
 	m.Author = metaData.Author
 	m.Date = metaData.Date
 	m.Paging = metaData.Paging
