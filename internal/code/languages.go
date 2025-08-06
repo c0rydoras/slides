@@ -1,5 +1,9 @@
 package code
 
+import (
+	"regexp"
+)
+
 // cmds: Multiple commands; placeholders can be used
 // Placeholders <file>, <name> and <path> can be used.
 type cmds [][]string
@@ -37,6 +41,22 @@ const (
 	Scala      = "scala"
 	Haskell    = "haskell"
 )
+
+var shells = map[string]struct{}{
+	Bash: {},
+	Zsh:  {},
+	Fish: {},
+}
+
+var shellPromptRE = regexp.MustCompile(`(?m)^\$ ?`)
+
+// Transform code, e.g. remove "$ " from shell commands
+func TransformCode(language, code string) string {
+	if _, ok := shells[language]; ok {
+		return shellPromptRE.ReplaceAllString(code, "")
+	}
+	return code
+}
 
 // Languages is a map of supported languages with their extensions and commands
 // to run to execute the program.

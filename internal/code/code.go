@@ -88,7 +88,7 @@ func Execute(code Block) Result {
 	defer f.Close()
 	defer os.Remove(f.Name())
 
-	_, err = f.WriteString(code.Code)
+	_, err = f.WriteString(TransformCode(code.Language, code.Code))
 	if err != nil {
 		return Result{
 			Out:      "Error: could not write to file",
@@ -121,9 +121,12 @@ func Execute(code Block) Result {
 		}
 		// execute and write output
 		cmd := exec.Command(command[0], command[1:]...)
+
 		out, err := cmd.CombinedOutput()
 		if err != nil {
-			output.Write(out)
+			if cmd.ProcessState.ExitCode() == 1 {
+				output.Write(out)
+			}
 			output.Write([]byte(err.Error()))
 		} else {
 			output.Write(out)

@@ -59,6 +59,16 @@ func main() {
 				ExitCode: code.ExitCodeInternalError,
 			},
 		},
+		{
+			block: code.Block{
+				Code:     `$ echo "Hello, bash!"`,
+				Language: "bash",
+			},
+			expected: code.Result{
+				Out:      "Hello, bash!\n",
+				ExitCode: 0,
+			},
+		},
 	}
 
 	for _, tc := range tt {
