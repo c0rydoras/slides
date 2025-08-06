@@ -5,7 +5,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/c0rydoras/slides/internal/cmd"
 	"github.com/c0rydoras/slides/internal/model"
 	"github.com/c0rydoras/slides/internal/navigation"
 	tea "github.com/charmbracelet/bubbletea"
@@ -13,7 +12,7 @@ import (
 )
 
 var (
-	rootCmd = &coral.Command{
+	cmd = &coral.Command{
 		Use:   "slides <file.md>",
 		Short: "Terminal based presentation tool",
 		Args:  coral.ArbitraryArgs,
@@ -43,15 +42,8 @@ var (
 	}
 )
 
-func init() {
-	rootCmd.AddCommand(
-		cmd.ServeCmd,
-	)
-	rootCmd.CompletionOptions.DisableDefaultCmd = true
-}
-
 func main() {
-	if err := rootCmd.Execute(); err != nil {
+	if err := cmd.Execute(); err != nil {
 		os.Exit(1)
 	}
 }

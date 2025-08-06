@@ -80,9 +80,9 @@ and the code block will be replaced with the `stdout` of the command.
 
 The above will be pre-processed to look like:
 
-┌───┐ to ┌───┐
+┌───┐ to    ┌───┐
 │ A │ ────> │ B │
-└───┘ └───┘
+└───┘       └───┘
 
 For security reasons, you must pass a file that has execution permissions
 for the slides to be pre-processed. You can use `chmod` to add these permissions.
@@ -231,29 +231,6 @@ Given the date _January 02, 2006_:
 | `mm`   | 1             |
 | `DD`   | 02            |
 | `dd`   | 2             |
-
-### SSH
-
-Slides is accessible over `ssh` if hosted on a machine through the `slides
-serve [file]` command.
-
-On a machine, run:
-
-```
-slides serve [file]
-```
-
-Then, on another machine (or same machine), `ssh` into the port specified by
-the `slides serve [file]` command:
-
-```
-ssh 127.0.0.1 -p 53531
-```
-
-You will be able to access the presentation hosted over SSH! You can use this
-to present with `slides` from a computer that doesn't have `slides` installed,
-but does have `ssh`. Or, let your viewers have access to the slides on their
-own computer without needing to download `slides` and the presentation file.
 
 ### Alternatives
 
