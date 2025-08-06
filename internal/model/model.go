@@ -76,7 +76,7 @@ func (m *Model) Load() error {
 	var content string
 	var err error
 
-	if m.FileName != "" {
+	if m.FileName != "" && m.FileName != "-" {
 		content, err = readFile(m.FileName)
 	} else {
 		content, err = readStdin()
