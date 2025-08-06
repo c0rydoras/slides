@@ -68,12 +68,16 @@ func TestAddHeadings(t *testing.T) {
 		"# Slide 1\nContent of slide 1",
 		"## Slide 2\nContent of slide 2",
 		"Content of slide 3",
+		"# Slide 4\ncontent of slide 4",
+		"## Slide 5\ncontent of slide 5",
 	}
 
 	expected := []string{
 		"# Slide 1\nContent of slide 1",
 		"# Slide 1\n## Slide 2\nContent of slide 2",
 		"# Slide 1\n## Slide 2\nContent of slide 3",
+		"# Slide 4\ncontent of slide 4",
+		"# Slide 4\n## Slide 5\ncontent of slide 5",
 	}
 
 	result := AddHeadings(slides, 2)
